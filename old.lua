@@ -1,4 +1,3 @@
--- Define some constants and utility functions
 local feeds = {"AuraFeed", "ActionFeed", "ControlFeed", "FocusFeed"}
 local DEBUG_MODE = false
 
@@ -23,7 +22,6 @@ local function GetReadableUnit(guid)
     return nil
 end
 
--- Create the options panel
 local optionsPanel = CreateFrame("Frame", "HyperannouncerOptionsPanel", InterfaceOptionsFramePanelContainer)
 optionsPanel.name = "Hyperannouncer"
 InterfaceOptions_AddCategory(optionsPanel)
@@ -41,10 +39,9 @@ end)
 
 debugPrint("Options GUI created.")
 
--- Create frames for feeds
 for _, feedName in ipairs(feeds) do
     local f = CreateFrame("Frame", feedName, UIParent, "BackdropTemplate")
-    f:SetSize(500, 200)  -- Adjusted default size
+    f:SetSize(500, 200)  
     f:SetFrameStrata("HIGH")
     f:SetBackdrop({
         bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
@@ -97,14 +94,13 @@ for _, feedName in ipairs(feeds) do
     f.text:SetJustifyH("CENTER")
 
     f.nameText = f:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    f.nameText:SetText(feedName) -- Set the text to the feedName
-    f.nameText:SetPoint("TOP", f, "TOP", 0, -5) -- Adjust the position as needed
+    f.nameText:SetText(feedName) 
+    f.nameText:SetPoint("TOP", f, "TOP", 0, -5) 
     f.nameText:SetJustifyH("CENTER")
 
     debugPrint(feedName .. " frame created.")
 end
 
--- Update the default positions to be side by side
 AuraFeed:SetPoint("CENTER", -350, 0)
 ActionFeed:SetPoint("CENTER", -115, 0)
 ControlFeed:SetPoint("CENTER", 115, 0)
@@ -148,7 +144,6 @@ local function Announce(self, event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, a
     end
 end
 
--- Event registrations
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 frame:RegisterEvent("PLAYER_FOCUS_CHANGED")
