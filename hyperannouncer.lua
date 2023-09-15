@@ -1,4 +1,4 @@
-local feeds = {"AuraFeed", "ActionFeed", "ControlFeed", "FocusFeed"}
+local feeds = {"BuffFeed", "DamageFeed", "ControlFeed", "DefensiveFeed", "FocusFeed"}
 local DEBUG_MODE = false
 
 local function debugPrint(msg)
@@ -104,14 +104,16 @@ for _, feedName in ipairs(feeds) do
 end
 
 -- so fucking ugly but we'll get to that
-AuraFeed:SetPoint("CENTER", -350, 0)
-ActionFeed:SetPoint("CENTER", -115, 0)
-ControlFeed:SetPoint("CENTER", 115, 0)
-FocusFeed:SetPoint("CENTER", 350, 0)
+BuffFeed:SetPoint("CENTER", -425, 0)
+DamageFeed:SetPoint("CENTER", -250, 0)
+ControlFeed:SetPoint("CENTER", -75, 0)
+DefensiveFeed:SetPoint("CENTER", 100, 0)
+FocusFeed:SetPoint("CENTER", 275, 0)
 
-AuraFeed:Show()
-ActionFeed:Show()
+BuffFeed:Show()
+DamageFeed:Show()
 ControlFeed:Show()
+DefensiveFeed:Show()
 FocusFeed:Show()
 
 local buffs = {} -- dont think i need to cache this
